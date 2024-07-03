@@ -157,13 +157,15 @@ const FileUploadAndParser = () => {
                     /></Stack>
                     {isLoading && (
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <CircularProgress sx={{paddingX:"300px"}}/>
+                            <CircularProgress size={110}  variant={'indeterminate'} sx={{paddingX:"300px"}}/>
                         </Box>
                     )}
                     {
                         data.length > 0 && !isLoading &&(
                             <LineChart
+
                                 height={400}
+                                colors={['red']}
                                 series={[
                                     { data: closeValues, label: file?.name + '收盘价格' },
                                 ]}
