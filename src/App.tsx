@@ -68,10 +68,6 @@ function App() {
                 <Typography>
                     <h1>第四组超酷股票预测机 - 2024.7.4</h1>
                     ⚠️投资有风险，入市需谨慎⚠️
-                    <br/>
-                    作者：很多人
-                    <br/>
-                    Tools: React + Django
 
                 </Typography>
             </Box>

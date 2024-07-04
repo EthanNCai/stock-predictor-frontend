@@ -40,7 +40,7 @@ const FileUploadAndParser = () => {
     const sendData = () => {
 
         setIsLoading(true );
-        fetch('http://localhost:8000/', {
+        fetch('http://localhost:8080/predcit/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -172,8 +172,9 @@ const FileUploadAndParser = () => {
                                 xAxis={[{ scaleType: 'point', data: dateLabels }]}
                             >{ startDate != null && ( <ChartsReferenceLine
                                 x={startDate as string}
-                                label="从这里开始是预测数据"
-                                lineStyle={{ stroke: 'red' }}
+                                label="预测起始"
+                                lineStyle={{ stroke: 'green'}}
+
                             />)}
                             </LineChart>
                         )
