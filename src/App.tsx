@@ -8,8 +8,10 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import TextLoop from "react-text-loop";
 import { TrendingUp} from "@mui/icons-material";
+import styles from './iframe.module.css'
 
 function App() {
+
 
     const [value, setValue] = React.useState('1');
 
@@ -74,7 +76,7 @@ function App() {
         <Paper elevation={10} sx={{paddingX:'1%', paddingTop:'2%'}}>
             <Stack direction={'row'} paddingX={'10px'} alignItems={'center'}>
                 <TrendingUp fontSize={'large'} sx={{paddingX:'10px'} } />
-                <TextLoop interval={2400} springConfig={{ stiffness: 80, damping: 10 }} >
+                <TextLoop interval={2500} springConfig={{ stiffness: 200, damping: 10 }} >
                     {stockData.map((stock, index) => (
                         <Box key={index} mb={2}>
                             <Typography variant="h6" fontWeight="bold" color="brown">
@@ -91,18 +93,40 @@ function App() {
             <TabContext value={value} >
                 <Box sx={{ borderBottom: 1, borderColor: 'divider'} }>
                     <TabList onChange={handleChange} aria-label="lab API tabs example" variant={'fullWidth'}>
-                        <Tab label="介绍页" value="1" />
-                        <Tab label="预测页" value="2" />
-                        <Tab label="介绍LSTM" value="3" />
-                        <Tab label="小组成员介绍" value="4" />
+                        <Tab label="队员介绍" value="1" />
+                        <Tab label="开始股票预测" value="2" />
+                        <Tab label="LSTM介绍" value="3" />
+                        <Tab label="LSTM之父介绍" value="4" />
+                        <Tab label="介绍" value="5" />
                     </TabList>
                 </Box>
-                <TabPanel value="1"><FileUploadAndParser/></TabPanel>
-                <TabPanel value="2">New</TabPanel>
-                <TabPanel value="3">OK</TabPanel>
-                <TabPanel value="4">OK</TabPanel>
+                <TabPanel value="1">
+
+                    <div className={styles.iframeBodySty}>
+                        <iframe
+                            id="iframe-shrink"
+                            src={'team.html'}
+                            width="100%"
+                            height="500"
+                            className={styles.iframeShrink}
+                        />
+                    </div>
+                </TabPanel>
+                <TabPanel value="2">
+                    <FileUploadAndParser/>
+                </TabPanel>
+                <TabPanel value="3">
+                    <iframe src={'L.html'} width="100%" height="500"></iframe>
+
+                </TabPanel>
+                <TabPanel value="4">
+                    <iframe src={'./appleman/index.html'} width="100%" height="500"></iframe>
+                </TabPanel>
+                <TabPanel value="5">
+                    <iframe src={'./appleman/introLSTM.html'} width="100%" height="500"></iframe>
+                </TabPanel>
             </TabContext>
-        </Box>
+            </Box>
         </Paper>
         </Box>
 
