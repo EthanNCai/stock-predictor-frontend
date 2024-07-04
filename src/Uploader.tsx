@@ -40,7 +40,7 @@ const FileUploadAndParser = () => {
     const sendData = () => {
 
         setIsLoading(true );
-        fetch('http://localhost:8080/predcit/', {
+        fetch('http://localhost:8080/predict/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
